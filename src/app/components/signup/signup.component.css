@@ -1,0 +1,47 @@
+/* start */
+
+mat-toolbar
+{
+  justify-content: space-between;
+}
+.form-contaainer
+{
+  background: rgba(213, 215, 226, 0.658);
+  display: block;
+  max-width: 400px;
+  margin: auto;
+  padding: 48px;
+  border-radius:16px ;
+  margin-top: 90px;
+
+}
+.center{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.margin-top{
+  margin-top: 20px;
+}
+.text-center
+{
+  text-align: center;
+}
+.sign-up-link{
+  font-size: 1.2rem;
+  margin-left: 8px;
+}
+.img{
+  width:30% ;
+  margin: 0 auto;
+}
+@media(max-width:400px){
+  .img{
+    width:30% ;
+
+  }
+}
+.card-title{
+  font-size: 29px !important;
+}
+/* end */

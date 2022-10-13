@@ -1,0 +1,113 @@
+@use '@angular/material' as mat;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import'~@angular/material/theming';
+
+@include mat.core();
+
+// Define a light theme
+$light-primary: mat.define-palette(mat.$blue-palette,800);
+$light-accent: mat.define-palette(mat.$blue-palette);
+$light-warn: mat.define-palette(mat.$red-palette);
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: $light-primary,
+   accent: $light-accent,
+   warn:$light-warn
+ )
+));
+
+// Define a dark theme
+$dark-primary: mat.define-palette(mat.$grey-palette,900);
+$dark-accent: mat.define-palette(mat.$pink-palette);
+$dark-warn: mat.define-palette(mat.$red-palette,500);
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: $dark-primary,
+   accent: $dark-accent,
+   warn:$dark-warn,
+ )
+));
+
+$color-primary: #2b3fdb;
+$color-primary-darker: darken($color-primary, 10%);
+$color-primary-darkest: darken($color-primary, 20%);
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-lightest: lighten($color-primary, 50%);
+
+$color-secondary: #37056b;
+$color-secondary-dark: darken($color-secondary, 10%);
+$color-secondary-darkest: darken($color-secondary, 20%);
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-lightest: lighten($color-secondary, 50%);
+
+$color-link: #2b4380;
+$color-link-hover: #0535d2;
+$color-visited: #7834bc;
+
+// Body font
+$body-font: (
+  'font-size': 20px,
+  'line-height': 33px,
+  'font-weight': 400
+);
+
+//Small Font
+$small-font: (
+  'font-size':   16px,
+  'line-height': 26px,
+  'font-weight': 400
+);
+
+.primary-darker{
+  background-color: $color-primary-darker
+}
+
+@function _mat-create-light-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat-palette($mat-red)),
+    is-dark: false,
+    foreground: $mat-light-theme-foreground,
+    background: $mat-light-theme-background,
+  );
+}
+
+
+@function _mat-create-dark-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat-palette($mat-red)),
+    is-dark: true,
+    foreground: $mat-dark-theme-foreground,
+    background: $mat-dark-theme-background,
+  );
+}
+
+.my-dark-theme{
+  // Apply the dark theme by default
+@include mat.all-component-themes($dark-theme);
+@include mat.button-color($dark-theme);
+
+
+}
+
+// Apply the light theme only when the `.my-light-theme` CSS class is applied
+// to an ancestor element of the components (such as `body`).
+
+.my-light-theme{
+ @include  mat.all-component-themes($light-theme);}
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

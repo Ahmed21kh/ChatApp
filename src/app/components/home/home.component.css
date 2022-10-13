@@ -1,0 +1,123 @@
+/* start */
+.contain {
+  padding: 0 20px;
+  display: flex;
+  height: calc(100vh - 70px);
+}
+.chat-list {
+  width: 40%;
+  margin: 16px;
+  background: rgba(213, 215, 226, 0.658);
+  border-radius: 16px;
+}
+.messages {
+  width: 60%;
+  margin: 16px;
+  border-radius: 16px;
+  padding: 24px;
+  background: rgba(211, 202, 202, 0.384);
+}
+.search-input {
+  margin: 24px;
+}
+.profile-image-toolbar {
+  position: relative;
+}
+.profile-image-toolbar > img {
+  margin-left: -15px;
+  margin-top: 5px;
+  position: absolute;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 33px;
+  height: 33px;
+}
+.chat-title {
+  display: flex !important;
+  justify-content: space-between;
+}
+.chat-name {
+  font-weight: 500;
+}
+.chat-date {
+  margin-left: 20px;
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.messages-header {
+  display: flex;
+  margin-bottom: 8px;
+}
+.messages-header > img {
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+  width: 35px;
+  height: 35px;
+}
+.messages-header > h2 {
+  margin: 0;
+}
+.align-content-center {
+  border-radius: 15px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 290px !important;
+  width: auto;
+  margin: auto;
+}
+.chat-area {
+  background: url(../../../assets//U1SFl7.jpg);
+  margin-top: 10px;
+  border-radius: 12px;
+  height: calc(100vh - 270px);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.chat-area > :first-child {
+  margin-top: auto;
+}
+.input-area > mat-form-field {
+  width: 100%;
+}
+.input-area {
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+.chat-bubble-container.sender {
+  justify-content: flex-end;
+}
+.chat-bubble-container.sender > .chat-bubble {
+  background: #c5cae9;
+  margin-right: 20px;
+}
+.chat-bubble-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+.chat-bubble {
+  background: rgb(255, 255, 255);
+  padding-top: 8px;
+  padding-bottom: 18px;
+  padding-left: 8px;
+  padding-right: 106px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  width: fit-content;
+  position: relative;
+  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.chat-lastdate {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+/* end */

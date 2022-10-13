@@ -1,0 +1,51 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define a light theme
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette);
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: $light-primary,
+   accent: $light-accent,
+ )
+));
+
+// Define a dark theme
+$app-dark-primary: mat.define-palette(mat.$pink-palette);
+$app-dark-accent: mat.define-palette(mat.$blue-grey-palette);
+$app-dark-theme: mat.define-dark-theme((
+ color: (
+   primary: $app-dark-primary,
+   accent: $app-dark-accent,
+ )
+));
+
+.my-dark-theme{
+  // Apply the dark theme by default
+@include mat.all-component-themes($app-dark-theme);
+@include mat.button-theme($app-dark-theme);
+}
+
+// Apply the light theme only when the `.my-light-theme` CSS class is applied
+// to an ancestor element of the components (such as `body`).
+.my-light-theme {
+ @include mat.core-color($light-theme);
+ @include mat.button-color($light-theme);
+}
+.flex-stretch{
+  flex: 1 0 auto;
+
+}
+.mr-8{
+  margin-right: 8px;
+}
+.darkmode{
+   margin-top: -43px;
+   display: flex;
+   float: right;
+   margin-right: 258px;
+   color: white;
+
+}

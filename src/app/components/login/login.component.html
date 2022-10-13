@@ -1,0 +1,94 @@
+
+<mat-card class="form-contaainer mt-[50px] mat-elevation-z5 mat-app-background mat-typography">
+    <img  src="assets/1.png" alt="logo" class="img center" >
+    <mat-card-header class=" text-center center mt-3" style="font-size:30px; ">
+        <mat-card-title class="card-title">Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="row d-flex justify-content-center ">
+      <form [formGroup]="loginForm"  (submit)="mySubmit()">
+
+        <mat-form-field class="center margin-top"  >
+
+              <input matInput placeholder="Email address" formControlName="email" type="email">
+              <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a correct email format
+              </mat-error>
+
+
+
+
+        </mat-form-field>
+        <mat-form-field class="center margin-top" >
+
+            <input matInput placeholder="Password" formControlName="password" type="password" [type]= " hide ?  'password':'text' ">
+            <mat-icon  style="color:rgb(143, 142, 142); margin-left: -20px;" matSuffix (click)="hide= !hide"> {{ hide ? 'visibility' : ' visibility_off'}}</mat-icon>
+
+            <mat-error *ngIf="password?.errors?.['required'] ">
+              Password is required
+            </mat-error>
+
+
+
+        </mat-form-field >
+        <div class="center margin-top">
+           <button class="" mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+
+        <span class="center margin-top">New to our platform? <a class="sign-up-link" href="#" routerLink="/signup"> Sign Up!</a> </span>
+      </form>
+        <div class="mt-1 text-center ">
+          <hr>or<hr>
+          <button mat-raised-button  class="google " (click)="onClick()"> <img src="assets/img/3.png" class=" w-[10%] absolute ml-2 mt-2  " alt="google"> Login with google </button>
+
+        </div>
+
+    </mat-card-content>
+</mat-card>
+
+
+<!--
+<div class="form-contaainer mt-[50px] mat-elevation-z5"  >
+<img  src="assets/1.png" alt="logo" class="img center" >
+<h1 class=" text-center " style="font-size:30px; "> Login</h1>
+<div class="row d-flex justify-content-center ">
+    <form [formGroup]="loginForm"  (submit)="mySubmit()">
+
+      <mat-form-field class="center margin-top"  >
+
+            <input matInput placeholder="Email address" formControlName="email" type="email">
+            <mat-error *ngIf="email?.errors?.['required']">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+              Please enter a correct email format
+            </mat-error>
+
+
+
+
+      </mat-form-field>
+      <mat-form-field class="center" >
+
+          <input matInput placeholder="Password" formControlName="password" type="password" [type]= " hide ?  'password':'text' ">
+          <mat-icon  style="color:rgb(143, 142, 142); margin-left: -20px;" matSuffix (click)="hide= !hide"> {{ hide ? 'visibility' : ' visibility_off'}}</mat-icon>
+
+          <mat-error *ngIf="password?.errors?.['required'] ">
+            Password is required
+          </mat-error>
+
+
+
+      </mat-form-field >
+      <div class="center margin-top">
+         <button class="" mat-raised-button color="primary" type="submit">Login</button>
+      </div>
+
+      <span class="center margin-top">New to our platform? <a class="sign-up-link" href="#" routerLink="/signup"> Sign Up!</a> </span>
+    </form>
+</div>
+
+
+</div> -->

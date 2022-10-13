@@ -1,0 +1,63 @@
+<mat-toolbar color="primary">
+  <h1 routerLink="" class="cursor-pointer">Chat App</h1>
+  <div class="flex-stretch"></div>
+
+  <ng-container
+    *ngIf="user$ | async as user; else loginButton"
+    class="text-center"
+  >
+    <div
+      class="text-sm"
+      mat-button
+      [matMenuTriggerFor]="userMenu"
+      style="
+        color: white;
+        margin-right: 20px;
+        position: relative;
+        cursor: pointer;
+      "
+    >
+      <div class="profile-image-toolbar">
+        <img [src]="user.photoURL ?? 'assets/4.png'" alt="logo" />
+      </div>
+      <h4>
+        {{ user.displayName }}
+        <mat-icon style="color: white; cursor: pointer">expand_more</mat-icon>
+      </h4>
+    </div>
+
+    <mat-menu #userMenu="matMenu">
+      <div
+        *ngIf="user"
+        mat-menu-item
+        routerLink="/profile"
+        class="menu-div text-black text-center"
+      >
+        <h3 class="absolute mt-3">{{ user.displayName }}</h3>
+        <img
+          [src]="user?.photoURL ?? 'assets/4.png'"
+          alt=""
+          class="menu-img center mt-2 ml-3"
+        />
+
+        <span> View Profile </span>
+      </div>
+      <div class="dropdown-divider"></div>
+      <button mat-menu-item (click)="logout()" class="w-[200px] text-black">
+        <i class="fa fa-sign-out fa-2x mr-2 ml-3" aria-hidden="true"></i> Logout
+      </button>
+    </mat-menu>
+  </ng-container>
+
+  <ng-template #loginButton>
+    <button class="btn" mat-button routerLink="/signup">Sign Up</button>
+    <button
+      class="btn"
+      mat-button
+      routerLink="/login"
+      style="color: white; margin-left: -20px"
+    >
+      <mat-icon class="mat-18" style="color: white">login</mat-icon> Login
+    </button>
+  </ng-template>
+</mat-toolbar>

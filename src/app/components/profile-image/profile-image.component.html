@@ -1,0 +1,87 @@
+<!-- <div
+  *ngIf="user$ | async as user"
+  class="form-contaainer mt-5 mat-elevation-z5 text-center mat-app-background mat-typography"
+> -->
+  <mat-card *ngIf="user$ | async as user" class="form-contaainer mt-5 mat-elevation-z7 text-center mat-app-background mat-typography">
+    <mat-card-header class=" text-center center text-2xl">
+      <mat-card-title class=" card-title"> User Profile</mat-card-title>
+    </mat-card-header>
+    <div class="profile-image center mt-4">
+      <img [src]="user.photoURL ?? 'assets/4.png'" class="text-center" />
+      <button
+        class="top-24 right-4 center"
+        mat-mini-fab
+        (click)="inputField.click()"
+        color="primary"
+      >
+        <mat-icon class="mat-18 text-white">edit</mat-icon>
+      </button>
+    </div>
+    <input
+      #inputField
+      type="file"
+      hidden
+      (change)="uploadImage($event, user)"
+    />
+
+    <mat-card-content class=" mt-5">
+      <form
+        class="form margin-top"
+        [formGroup]="profileForm"
+        (ngSubmit)="saveProfile()"
+      >
+        <div class="row">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="firstName"
+              placeholder="FirstName"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="lastName"
+              placeholder="LastName"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="displayName"
+              placeholder="DisplayName"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="phone"
+              placeholder="Phone"
+            />
+          </mat-form-field>
+        </div>
+        <mat-form-field class="address">
+          <input
+            type="text"
+            matInput
+            formControlName="address"
+            placeholder="Address"
+          />
+        </mat-form-field>
+
+        <button
+          type="submit"
+          class="margin-top center w-[200px] text-white"
+          mat-raised-button
+          color="primary"
+        >
+          Save
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+<!-- </div> -->

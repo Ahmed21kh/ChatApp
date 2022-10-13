@@ -1,0 +1,14 @@
+
+    <app-navbar></app-navbar>
+    <div class=" darkmode">
+          <div class="flex-stretch"></div>
+          <!-- <mat-icon class="mr-8">brightness_5</mat-icon> -->
+          <mat-slide-toggle  [(ngModel)]="isChecked" (change)="changed($event)" >
+          </mat-slide-toggle>
+          <mat-icon  class="ml-2">{{mode}}</mat-icon>
+
+          <!-- <mat-icon  class="ml-2">bedtime</mat-icon> -->
+    </div>
+    <router-outlet></router-outlet>
+
+
